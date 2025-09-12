@@ -5,7 +5,7 @@ A simple Java application that calculates monthly mortgage payments based on use
 - Annuate interest rate
 - Period (Years)
 
-# Example:
+## Example:
 Priciple: 100000
 Annual interest rate: 3.5
 {eriod (Years): 30
