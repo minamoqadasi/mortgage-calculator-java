@@ -6,7 +6,7 @@ A simple Java application that calculates monthly mortgage payments based on use
 - Period (Years)
 
 ## Example:
-Priciple: 100000
-Annual interest rate: 3.5
+Priciple: 399000
+Annual interest rate: 6.125
 {eriod (Years): 30
-Mortgage: $440.04
+Mortgage: $2,424.36
