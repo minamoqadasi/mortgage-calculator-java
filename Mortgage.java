@@ -1,33 +1,60 @@
 import java.util.*;
 import java.text.NumberFormat;
 
-public class Mortgage {
+public class CalculateMortgage {
 
 	public static void main(String[] args) {
 
 		final byte MONTHS_IN_YEAR = 12;
 		final byte PERCENT = 100;
 
+		//Initialization
+		int principal = 0;
+		float monthlyInterest = 0;
+		int numberOfPayments = 0;
+
 		Scanner input = new Scanner(System.in);
 
-		System.out.print("Principle: ");
-		int principle = input.nextInt();
+		//Principal loop
+		while (true) {
+			System.out.print("Principal: ");
+			principal = input.nextInt();
+			if (principal >= 1000 && principal <= 1000000) {
+				break;
+			}
+			System.out.println("Enter a value between 1000 and 1000000.");
+		}
 
-		System.out.print("Annual Interest Rate: ");
-		float annualInterest = input.nextFloat();
-		float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+		//Interest loop
+		while (true) {
+			System.out.print("Annual Interest Rate: ");
+			float annualInterest = input.nextFloat();
+			if (annualInterest >= 1 && annualInterest <= 30) {
+				monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+				break;
+			}
+			System.out.println("Enter a value between 1 and 30.");
+		}
 
-		System.out.print("Period (Years): ");
-		int years = input.nextInt();
-		int numberOfPayments = years * MONTHS_IN_YEAR;
+		//Period loop
+		while (true) {
+			System.out.print("Period (Years): ");
+			int years = input.nextInt();
+			if (years >= 1 && years <= 30) {
+				numberOfPayments = years * MONTHS_IN_YEAR;
+				break;
+			}
+			System.out.println("Enter a value between 1 and 30.");
+		}
 
-		double mortgage = principle
+		//Calculation
+		double mortgage = principal
 		        * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
 		        / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
 
 		String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
 
-		System.out.print("Mortgage: " + mortgageFormatted);
+		System.out.println("Mortgage: " + mortgageFormatted);
 
 
 	}
